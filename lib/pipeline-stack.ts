@@ -1,6 +1,6 @@
 import * as cdk from '@aws-cdk/core'
 import * as codecommit from '@aws-cdk/aws-codecommit'
-import {CodeBuildStep, CodePipepline, CodePipelineSource} from '@aws-cdk/piplelines'
+import {CodeBuildStep, CodePipeline, CodePipelineSource} from "@aws-cdk/pipelines"
 
 export class HelloPipelineStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -16,7 +16,7 @@ export class HelloPipelineStack extends cdk.Stack {
         /**
          * Pipeline declaration
          */
-        const pipeline = new CodePipepline(this, 'Pipeline', {
+        const pipeline = new CodePipeline(this, 'Pipeline', {
             pipelineName: 'FirstCDKPipeline',
             synth: new CodeBuildStep('SynthStep', {
                 input: CodePipelineSource.codeCommit(repo, 'master'),
